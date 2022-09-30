@@ -468,4 +468,483 @@ int main()
 ```
 
 #### 数组
+```cpp
+#include <iostream>
+#include <cstdio>
 
+using namespace std;
+
+int main()
+{
+    int arr[10];
+    for(int i=0;i<10;i++){
+        cin >>arr[i];
+        if(arr[i]<=0) arr[i]=1;
+        printf("X[%d] = %d\n",i,arr[i]);        
+    }
+    return 0;
+}
+```
+
+```cpp
+#include <iostream>
+#include <cstdio>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+    int v;
+    cin >>v;
+    for(int i=0;i<10;i++){
+        printf("N[%d] = %d\n",i,v*(int)pow(2,i));
+    }
+
+    return 0;
+}
+```
+
+```cpp
+#include <iostream>
+#include <cstdio>
+
+using namespace std;
+
+int main()
+{
+    double x;
+    for(int i=0;i<100;i++){
+        if(cin >>x &&x<=10){
+            printf("A[%d] = %.1lf\n",i,x);
+        }
+    }
+
+    return 0;
+}
+```
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int l;
+    cin >>l;
+    char c;
+    cin >>c;
+    double sum=0,x;
+    for(int i=0;i<12;i++){
+        for(int j=0;j<12;j++){
+            if(cin >>x && i==l) sum+=x;
+        }
+    }
+    printf("%.1lf\n",c=='S'?sum:sum/12);
+}
+```
+
+```cpp
+#include <iostream>
+#include <cstdio>
+
+using namespace std;
+
+int main()
+{
+    char c;
+    cin >>c;
+    double sum=0,x,idx=0;
+    for(int i=0;i<12;i++){
+        for(int j=0;j<12;j++){
+            if(cin >>x&&j>i){
+                sum+=x;
+                idx++;
+            }
+        }
+    }
+    printf("%.1lf\n",c=='S'?sum:sum/idx);
+
+    return 0;
+}
+```
+
+```cpp
+#include <iostream>
+#include <cstdio>
+
+using namespace std;
+
+int main()
+{
+    char c;
+    cin >>c;
+    double sum=0,x,count=0;
+    for(int i=0;i<12;i++){
+        for(int j=0;j<12;j++){
+            if(cin >>x && j+i<11){
+                sum+=x;
+                count++;
+            }
+        }
+    }
+    printf("%.1lf\n",c=='S'?sum:sum/count);
+
+    return 0;
+}
+```
+
+```cpp
+#include <iostream>
+#include <cstdio>
+
+using namespace std;
+
+int main()
+{
+    char c;
+    cin >>c;
+    double sum=0,x,count=0;
+    for(int i=0;i<12;i++){
+        for(int j=0;j<12;j++){
+            if(cin >>x && j>i && j<11-i){
+                sum+=x;
+                count++;
+            }
+        }
+    }
+    printf("%.1lf\n",c=='S'?sum:sum/count);
+
+    return 0;
+}
+```
+
+```cpp
+#include <iostream>
+#include <cstdio>
+
+using namespace std;
+
+int main()
+{
+    char c;
+    cin >>c;
+    double sum=0,x,count=0;
+    for(int i=0;i<12;i++){
+        for(int j=0;j<12;j++){
+            if(cin >>x && j<i && i+j<11){
+                sum+=x;
+                count++;
+            }
+        }
+    }
+    printf("%.1lf\n",c=='S'?sum:sum/count);
+
+    return 0;
+}
+```
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    int n;
+    while(cin >>n && n){
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=n;j++){
+                int up=i,down=n-i+1,left=j,right=n-j+1;
+                cout <<min(min(up,down),min(left,right)) <<' ';
+            }
+            cout <<endl;
+        }
+        cout <<endl;
+    }
+    return 0;
+}
+```
+
+#### 字符串
+```cpp
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    string str;
+    getline(cin,str);
+    cout <<str.size()<<endl;
+
+    return 0;
+}
+```
+
+```cpp
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    string str;
+    getline(cin,str);
+    int count=0;
+    for(int i=0;i<str.size();i++){
+        if(str[i]>='0' &&str[i]<='9') count++;
+    }
+    cout <<count;
+
+    return 0;
+}
+```
+
+```cpp
+
+```
+
+```cpp
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    string a,b;
+    getline(cin,a);
+    for(int i=0;i<a.length();i++){
+        b=b+a[i]+' ';
+    }
+    cout <<b <<endl;
+
+    return 0;
+}
+```
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    string str;
+    char s;
+    cin >>str >>s;
+    for(int i=0;i<str.length();i++){
+        if(str[i]==s) str[i]='#';
+    }
+    cout <<str;
+
+    return 0;
+}
+```
+
+```cpp
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main(){
+    string a,b;
+    while(cin >>a >>b){
+        int p=0;
+        for(int i=1;i<a.size();i++){
+            if(a[i]>a[p]) p=i;
+        }
+         cout <<a.substr(0,p+1)+b+a.substr(p+1) <<endl;
+    }
+
+    return 0;
+}
+```
+
+```cpp
+
+```
+
+#### 函数
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int fact(int n){
+    if(n==1) return 1;
+    else return n*fact(n-1);
+}
+
+int main(){
+    int n;
+    cin >>n;
+    cout <<fact(n)<<endl;
+    return 0;
+}
+```
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int max(int x,int y){
+    return x>y?x:y;
+}
+
+int main()
+{
+    int x,y;
+    cin >>x >>y;
+    cout <<max(x,y) <<endl;
+
+    return 0;
+}
+```
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int min(int x,int y){
+    return x<y?x:y;
+}
+
+int gcd(int a,int b){
+    int m=min(a,b);
+    int target;
+    for(int i=m;i>0;i--){
+        if(a%i==0&&b%i==0){
+            target=i;
+            break;
+        }
+    }
+    return target;
+}
+
+int main(){
+    int a,b;
+    cin >>a >>b;
+    cout <<gcd(a,b) <<endl;
+
+    return 0;
+}
+
+```
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+void swap(int& x ,int& y){
+    int temp=x;
+    x=y;
+    y=temp;
+}
+
+int main(){
+    int x,y;
+    cin >>x >>y;
+    swap(x,y);
+    cout <<x <<' ' <<y <<endl;
+    return 0;
+}
+```
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+void print(int a[],int size){
+    for(int i=0;i<size;i++){
+        cout <<a[i] <<' ';
+    }
+}
+
+int main(){
+    int n,size;
+    cin >>n >>size;
+    int a[n];
+    for(int i=0;i<n;i++){
+        cin >>a[i];
+    }
+    print(a,size);
+
+    return 0;
+}
+```
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+void print2D(int a[100][100], int row ,int col){
+    int x;
+    for(int i=0;i<row;i++){
+        for(int j=0;j<col;j++){
+            cin >>x;
+            cout <<x <<' ';
+        }
+        cout <<endl;
+    }
+}
+
+int main(){
+    int row,col;
+    cin >>row >>col;
+    int a[100][100];
+    print2D(a,row,col);
+
+    return 0;
+}
+```
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int multiply(int x){
+    if(x==1) return 1;
+    return x*multiply(x-1);
+}
+
+int main(){
+    int x;
+    cin >>x;
+    cout <<multiply(x) <<endl;
+
+    return 0;
+}
+```
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int f(int n){
+    if(n==1||n==2) return 1;
+    return f(n-1)+f(n-2);
+}
+
+int main(){
+    int n;
+    cin >>n;
+    cout <<f(n);
+
+    return 0;
+}
+```
+
+#### 结构体、类、指针、引用
+
+#### STL容器、位运算与常用库函数
