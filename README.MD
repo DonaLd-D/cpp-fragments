@@ -946,5 +946,91 @@ int main(){
 ```
 
 #### 结构体、类、指针、引用
+```cpp
+class Solution {
+public:
+    int Fibonacci(int n) {
+        if(n==0) return 0;
+        else if(n==1) return 1;
+        else return Fibonacci(n-1)+Fibonacci(n-2);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    string replaceSpaces(string &str) {
+        string res;
+        for(int i=0;i<str.size();i++){
+            if(str[i]==' ') res+="%20";
+            else res+=str[i];
+        }
+        return res;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int getSum(int n) {
+        return n==1?1:n+getSum(n-1);
+    }
+};
+```
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    void deleteNode(ListNode* node) {
+        node->val=node->next->val;
+        node->next=node->next->next;
+    }
+};
+```
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* merge(ListNode* l1, ListNode* l2) {
+        auto ln=new ListNode(-1),tail=ln;
+        while(l1&&l2){
+            if(l1->val < l2->val){
+                tail->next=l1;
+                tail=tail->next;
+                l1=l1->next;
+            }else{
+                tail->next=l2;
+                tail=tail->next;
+                l2=l2->next;
+            }
+        }
+        if(l1){
+            tail->next=l1;
+        }else{
+            tail->next=l2;
+        }
+
+        return ln->next;
+    }
+};
+```
 
 #### STL容器、位运算与常用库函数
