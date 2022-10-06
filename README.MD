@@ -1034,3 +1034,69 @@ public:
 ```
 
 #### STL容器、位运算与常用库函数
+```cpp
+class Solution {
+public:
+    int getNumberOfK(vector<int>& nums , int k) {
+        int cnt=0;
+        for(auto it=nums.begin();it!=nums.end();it++){
+            if(*it==k) cnt++;
+        }
+
+        return cnt;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int getMissingNumber(vector<int>& nums) {
+        int sum1=0,sum2=0;
+        for(int i=0;i<=nums.size();i++){
+            if(i!=nums.size()) sum1+=nums[i];
+            sum2+=i;
+        }
+
+        return sum2-sum1;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    void reOrderArray(vector<int> &array) {
+         for(int i=0;i<array.size();i++){
+             for(int j=i+1;j<array.size();j++){
+                 if(array[j]%2!=0&&array[i]%2==0){
+                     int temp=array[j];
+                     array[j]=array[i];
+                     array[i]=temp;
+                 }
+             }
+         }
+    }
+};
+```
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> printListReversingly(ListNode* head) {
+        vector<int> a;
+        for(auto it=head;it;it=it->next) a.push_back(it->val);
+        reverse(a.begin(),a.end());
+
+        return a;
+    }
+};
+```
